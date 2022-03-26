@@ -9,20 +9,23 @@ import cartItems from "./cart-items";
 import { createStore } from 'redux'
 import reducer from "./reducer";
 import { Provider } from "react-redux";
+import CounterContainer from "./components/CounterContainer";
+import countReducer, { countState } from "./countReducer";
 
 const initialState = {
   cart: cartItems,
   total: 0,
-  amount: 0
+  amount: 0,
 }
 
-const store = createStore(reducer, initialState)
+const store = createStore(countReducer, countState)
 
 function App() {
   return (
     <Provider store={store}>
-      <Navbar />
-      <CartContainer />
+      {/* <Navbar /> */}
+      {/* <CartContainer /> */}
+      <CounterContainer />
     </Provider>
   );
 }
