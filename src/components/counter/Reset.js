@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { reset } from '../countReducer';
+import { reset } from '../../countReducer';
 
 const Reset = ({ resetCount }) => {
     const [input, setInput] = React.useState(0);

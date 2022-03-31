@@ -7,10 +7,11 @@ import cartItems from "./cart-items";
 // redux stuff
 
 import { createStore } from 'redux'
-import reducer from "./reducer";
+// import reducer from "./reducer";
 import { Provider } from "react-redux";
-import CounterContainer from "./components/CounterContainer";
+import CounterContainer from "./components/counter/CounterContainer";
 import countReducer, { countState } from "./countReducer";
+import CatsHome from "./typescript/CatsHome";
 
 const initialState = {
   cart: cartItems,
@@ -23,9 +24,10 @@ const store = createStore(countReducer, countState)
 function App() {
   return (
     <Provider store={store}>
-      {/* <Navbar /> */}
+      <Navbar />
+      <CatsHome />
       {/* <CartContainer /> */}
-      <CounterContainer />
+      {/* <CounterContainer /> */}
     </Provider>
   );
 }

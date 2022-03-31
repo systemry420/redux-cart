@@ -19,7 +19,7 @@ export function decrease() {
   };
 }
 
-export function reset(value) {
+export function reset(value: any) {
     console.log(value);
     return {
         type: RESET,
@@ -27,7 +27,7 @@ export function reset(value) {
     }
 }
 
-const countReducer = (state = countState, action) => {
+const countReducer = (state = countState, action: { type: any; payload: string | number; }) => {
   switch (action.type) {
     case INCREASE:
       return { ...state, count: +state.count + 1 };

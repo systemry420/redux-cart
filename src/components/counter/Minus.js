@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { decrease } from '../countReducer'
+import { decrease } from '../../countReducer'
 
 const Minus = ({ decreaseCount }) => {
   return (
