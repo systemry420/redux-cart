@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import { ICat } from './ICat'
 
-const Form = () => {
+const Form = ({ cats, addCat }) => {
     const [input, setInput] = useState<ICat>({
-        name: '', age: 0
+        id: cats.length, name: '', age: 0
     })
 
     const handleChange = (e) => {
@@ -13,8 +14,21 @@ const Form = () => {
         })
     }
 
+    const add = () => {
+        addCat(input)
+        setInput({
+            id: cats.length, name: '', age: 0
+        })
+    }
+
   return (
     <form onSubmit={(e) => e.preventDefault()}>
+        <input 
+            type='text' 
+            value={cats.length}
+            onChange={handleChange}
+            disabled={true}
+            name='id' />
         <input 
             type='text' 
             value={input.name}
@@ -29,9 +43,21 @@ const Form = () => {
             value={input.age}
             onChange={handleChange}
             placeholder='Age' />
-        <input type='submit' value='Add' />
+        <input type='submit' onClick={add} value='Add' />
     </form>
   )
 }
 
-export default Form
+const mapDispatch = (dispatch) => {
+    return {
+        addCat: (cat) => dispatch({ type: "ADD_CAT", payload: {cat}})
+    }
+}
+
+const mapState = (state) => {
+    return {
+        cats: state.cats
+    }
+}
+
+export default connect(mapState, mapDispatch) (Form)

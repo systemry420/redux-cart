@@ -11,6 +11,8 @@ import { createStore } from 'redux'
 import { Provider } from "react-redux";
 import CounterContainer from "./components/counter/CounterContainer";
 import countReducer, { countState } from "./countReducer";
+import { catsReducer, initState } from './typescript/reducer'
+
 import CatsHome from "./typescript/CatsHome";
 
 const initialState = {
@@ -19,7 +21,7 @@ const initialState = {
   amount: 0,
 }
 
-const store = createStore(countReducer, countState)
+const store = createStore(catsReducer, initState)
 
 function App() {
   return (
