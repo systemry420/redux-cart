@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Cat from './Cat'
+import Form from './Form'
 import { ICat } from './ICat'
 
 const CatsHome = () => {
@@ -12,9 +13,10 @@ const CatsHome = () => {
   return (
     <div>
         <h1>Cats Home</h1>
-        {cats.map((cat: ICat) => {
+        <Form />
+        {cats.map((cat: ICat) => 
             <Cat cat={cat} />
-        })}
+        )}
     </div>
   )
 }
